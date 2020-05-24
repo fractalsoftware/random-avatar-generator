@@ -1,5 +1,5 @@
-function randomHexColor() {
-  return `${(Math.floor(Math.random() * 16777215).toString(16)).padStart(6, '0')}`;
+function decToHexColor(colorNumber) {
+  return `${colorNumber.toString(16).padStart(6, '0')}`;
 }
 
 function getBinaryList(number, size) {
@@ -8,34 +8,57 @@ function getBinaryList(number, size) {
     .split('');
 }
 
-function drawRandomAvatar(element, resolution = 8, size = 16) {
+function parseAvatarData(data, separator = ',') {
+  const ret = {
+    xAxis: 0,
+    yAxis: 0,
+    colorMap: []
+  };
+
+  data.split(separator).forEach((element, index) => {
+    let intVal = parseInt(element, 36);
+
+    switch (index) {
+      case 0:
+        ret.xAxis = intVal;
+        break;
+      case 1:
+        ret.yAxis = intVal;
+        break;
+    
+      default:
+        ret.colorMap.push(decToHexColor(intVal));
+        break;
+    }
+  });
+
+  return ret;
+}
+
+function drawRandomAvatar(element, resolution = 8, size = 16, avatarDataSeparator = ',') {
   const xAxis = Math.floor(Math.random() * Math.pow(2, size));
   const yAxis = Math.floor(Math.random() * (Math.pow(2, size) - 1)) + 1;
 
   const rows = getBinaryList(yAxis, size);
   const cols = getBinaryList(xAxis, size);
-  const colorMap = [];
+  let ret = `${xAxis.toString(36)}${avatarDataSeparator}${yAxis.toString(36)}`;
 
   element.style.width = `${size * resolution}px`;
 
-  rows.forEach((rowItem, item) => {    
-    let color = randomHexColor();
-    colorMap.push(color);
+  rows.forEach(rowItem => {    
+    let color = Math.floor(Math.random() * 16777215);
+    ret += `${avatarDataSeparator}${color.toString(36)}`;
     cols.forEach(colItem => {
       const enabled = parseInt(rowItem, 10) ^ parseInt(colItem, 10);
-      element.insertAdjacentHTML('beforeend', `<div style="width:${resolution}px; height:${resolution}px;background:${enabled ? `#${color}` : 'transparent'}"></div>`);
+      element.insertAdjacentHTML('beforeend', `<div style="width:${resolution}px; height:${resolution}px;background:${enabled ? `#${decToHexColor(color)}` : 'transparent'}"></div>`);
     });
   });
 
-  return {
-    y: yAxis,
-    x: xAxis,
-    c: colorMap
-  };
+  return ret;
 }
 
 function drawAvatarFromData(element, resolution, avatarData) {
-  const { x: xAxis, y: yAxis, c: colorMap } = avatarData;
+  const { xAxis, yAxis, colorMap } = avatarData;
   const size = colorMap.length;
 
   if (xAxis >= Math.pow(2, size)) {
@@ -46,7 +69,6 @@ function drawAvatarFromData(element, resolution, avatarData) {
   }
 
   console.log(JSON.stringify(avatarData));
-  console.log(btoa(JSON.stringify(avatarData)));
 
   const rows = getBinaryList(yAxis, size);
   const cols = getBinaryList(xAxis, size);
@@ -70,16 +92,20 @@ function drawAvatarFromData(element, resolution, avatarData) {
   const generatedCodeOutput = document.getElementById('generatedcode');
 
   let avatarData = drawRandomAvatar(randombox, resolution, size);
+  console.log(avatarData);
+  console.log(btoa(avatarData));
   generatedCodeOutput.innerText = JSON.stringify(avatarData);
-  drawAvatarFromData(recreatedavatar, resolution, avatarData);
+  drawAvatarFromData(recreatedavatar, resolution, parseAvatarData(avatarData));
   
   document.getElementById('updateimage').addEventListener('mouseup', (ev) => {
     ev.preventDefault();
     randombox.innerHTML = '';
     recreatedavatar.innerHTML = '';
     avatarData = drawRandomAvatar(randombox, resolution, size);
+    console.log(avatarData);
+    console.log(btoa(avatarData));
     generatedCodeOutput.innerText = JSON.stringify(avatarData);
-    drawAvatarFromData(recreatedavatar, resolution, avatarData);
+    drawAvatarFromData(recreatedavatar, resolution, parseAvatarData(avatarData));
   })
-
+  
 })(document);
