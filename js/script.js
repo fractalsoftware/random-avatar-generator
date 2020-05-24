@@ -85,27 +85,39 @@ function drawAvatarFromData(element, resolution, avatarData) {
 }
 
 (function(document){
-  const resolution = 16;
-  const size = 8;
+  const avatarSize = 256;
   const randombox = document.getElementById('randombox');
   const recreatedavatar = document.getElementById('recreatedavatar');
   const generatedCodeOutput = document.getElementById('generatedcode');
+  const avatarSizeInput = document.getElementById('avatarsize');
+  const avatarSizeVal = document.getElementById('avatarSizeVal');
 
+  let size = parseInt(avatarSizeInput.value, 10);
+  let resolution = Math.floor(avatarSize / size);
+  avatarSizeVal.innerText = size;
+  
   let avatarData = drawRandomAvatar(randombox, resolution, size);
   console.log(avatarData);
   console.log(btoa(avatarData));
-  generatedCodeOutput.innerText = JSON.stringify(avatarData);
-  drawAvatarFromData(recreatedavatar, resolution, parseAvatarData(avatarData));
+  generatedCodeOutput.innerText = avatarData;
+  // drawAvatarFromData(recreatedavatar, resolution, parseAvatarData(avatarData));
+
+  avatarSizeInput.addEventListener('input', (ev) => {
+    avatarSizeVal.innerText = ev.srcElement.value;
+  }, false);
   
   document.getElementById('updateimage').addEventListener('mouseup', (ev) => {
     ev.preventDefault();
+    size = parseInt(avatarSizeInput.value, 10);
+    resolution = Math.floor(avatarSize / size);
+  
     randombox.innerHTML = '';
     recreatedavatar.innerHTML = '';
     avatarData = drawRandomAvatar(randombox, resolution, size);
     console.log(avatarData);
     console.log(btoa(avatarData));
-    generatedCodeOutput.innerText = JSON.stringify(avatarData);
-    drawAvatarFromData(recreatedavatar, resolution, parseAvatarData(avatarData));
+    generatedCodeOutput.innerText = avatarData;
+    // drawAvatarFromData(recreatedavatar, resolution, parseAvatarData(avatarData));
   })
   
 })(document);
