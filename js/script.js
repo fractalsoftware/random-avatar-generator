@@ -8,7 +8,7 @@ function getBinaryList(number, size) {
     .split('');
 }
 
-function parseAvatarData(data, separator = ',') {
+function parseAvatarData(data, separator = '-') {
   const ret = {
     xAxis: 0,
     yAxis: 0,
@@ -35,8 +35,8 @@ function parseAvatarData(data, separator = ',') {
   return ret;
 }
 
-function drawRandomAvatar(element, resolution = 8, size = 16, avatarDataSeparator = ',') {
-  const xAxis = Math.floor(Math.random() * Math.pow(2, size));
+function drawRandomAvatar(element, resolution = 8, size = 16, avatarDataSeparator = '-') {
+  const xAxis = Math.floor(Math.random() * Math.pow(2, size - 1));
   const yAxis = Math.floor(Math.random() * (Math.pow(2, size) - 1)) + 1;
 
   const rows = getBinaryList(yAxis, size);
