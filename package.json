@@ -1,0 +1,29 @@
+{
+  "name": "random-avatar-generator",
+  "version": "1.0.0",
+  "description": "A random avatar generator with low collision",
+  "main": "dist/random-avatar-generator.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --display-error-details --display-modules --optimize-minimize",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manuelhe/random-avatar-generator.git"
+  },
+  "author": "Manuel Herrera",
+  "bugs": {
+    "url": "https://github.com/manuelhe/random-avatar-generator/issues"
+  },
+  "homepage": "https://github.com/manuelhe/random-avatar-generator#readme",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  }
+}
