@@ -9,5 +9,6 @@ body {
 }
 
 .avatar-container>* {
-  background: transparent
+  background: transparent;
+  border-radius: 50%;
 }
