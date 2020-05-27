@@ -51,32 +51,47 @@ export function generateRandomAvatarData(size = 16, avatarDataSeparator = '-') {
   return ret;
 }
 
-export function getAvatarFromData(element, resolution, avatarData) {
-  const { xAxis, yAxis, colorMap } = parseAvatarData(avatarData);
+export function getAvatarFromData(avatarData, width = 256, renderMethod = 'square', avatarDataSeparator = '-') {
+  const { xAxis, yAxis, colorMap } = parseAvatarData(avatarData, avatarDataSeparator);
   const size = colorMap.length;
-
+  const resolution = Math.floor(width / size);
+  
   if (xAxis >= Math.pow(2, size)) {
-    throw Error('xAxis should be a number lower than size');
+    throw Error(`xAxis should be a number lower than ${size}`);
   }
   if (yAxis >= Math.pow(2, size)) {
-    throw Error('yAxis should be a number lower than size');
+    throw Error(`yAxis should be a number lower than ${size}`);
+  }
+
+  let renderProcess = (resolution, indexX, indexY) => `M${indexX * resolution},${indexY * resolution} h${resolution} v${resolution} h${0 - resolution}Z`;
+
+  if (renderMethod === 'circle') {
+    renderProcess = (resolution, indexX, indexY) => {
+      const radius = resolution / 2;
+      return `M${indexX * resolution},${(indexY * resolution) + radius} a${radius} ${radius} 0 1,1 ${resolution},0 a${radius} ${radius} 0 1,1 -${resolution},0`;
+    }
+  } else if (typeof renderMethod === 'function') {
+    renderProcess = renderMethod;
   }
 
   const rows = getBinaryList(yAxis, size);
   const cols = getBinaryList(xAxis, size);
+  let ret = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${width}">`;
 
-  element.style.width = `${size * resolution}px`;
-
-  rows.forEach((rowItem, index) => {
-    let color = colorMap[index];
-    cols.forEach(colItem => {
-      const enabled = parseInt(rowItem, 10) ^ parseInt(colItem, 10);
-      element.insertAdjacentHTML('beforeend', `<div style="width:${resolution}px; height:${resolution}px;background:${enabled ? `#${color}` : 'transparent'}"></div>`);
+  rows.forEach((rowItem, indexY) => {
+    let draw = [];
+    cols.forEach((colItem, indexX) => {
+      if (parseInt(rowItem, 10) ^ parseInt(colItem, 10)) {
+        draw.push(renderProcess(resolution, indexX, indexY));
+      }
     });
-  });  
+    ret += `<path fill="#${colorMap[indexY]}" d="${draw.join(' ')}"/>`;
+  });
+
+  return `${ret}</svg>`;
 }
 
-export default function getRandomAvatar(resolution = 8, size = 16) {
+export default function getRandomAvatar(size = 16, width = 256) {
   let avatarData = generateRandomAvatarData(size);
-  return getAvatarFromData(element, resolution, avatarData);
+  return getAvatarFromData(avatarData, width);
 }
