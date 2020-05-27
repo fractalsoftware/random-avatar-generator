@@ -3,12 +3,6 @@ body {
 }
 
 .avatar-container {
-  display: flex;
-  flex-wrap: wrap;
+  width: 256px;
   margin-bottom: 1em;
-}
-
-.avatar-container>* {
-  background: transparent;
-  border-radius: 50%;
 }
