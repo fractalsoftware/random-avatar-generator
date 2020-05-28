@@ -3,38 +3,90 @@
 
 <head>
   <meta charset="utf-8">
-
-  <title>Random Colors</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Avatar Generator Demo</title>
   <meta name="description" content="Random Avatar Generator">
   <meta name="author" content="Manuel Herrera">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css" />
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./favicon.svg">
 </head>
 
 <body>
-  <div id="app">
-    <div id="randombox" class="avatar-container"></div>
-    <div>
-      <div>
-        <label for="avatarsize">
-          <h3>Avatar Size</h3>
-          <input type="range" min="2" max="32" value="8" id="avatarsize">
-          <span id=avatarSizeVal></span>
-        </label>
-      </div>
-      <div>
-        <label for="cellshape">
-          <h3>Cells shape</h3>
-          <select id="cellshape">
-            <option value="square" selected>Square</option>
-            <option value="circle">Circle</option>
-            <option value="custom">Custom 1 (triangles)</option>
-          </select>
-        </label>
-      </div>
+  <div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+      <div class="header">
+        <div>
+          <h1 class="brand-title">Random Avatar Generator</h1>
+          <h2 class="brand-tagline">A playground to show library capabilities</h2>
 
-      <h3>Avatar Code</h3>
-      <div id="generatedcode"></div>
-      <button id="updateimage">Update Image</button>
+          <nav class="nav">
+            <ul class="nav-list">
+              <li class="nav-item">
+                <a class="pure-button" href="https://github.com/manuelhe/random-avatar-generator">Github</a>
+              </li>
+              <li class="nav-item">
+                <a class="pure-button" href="https://twitter.com/fractalsoftware">@fractalsoftware</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+      <div class="pure-g">
+
+        <div class="pure-u-1 pure-u-md-5-8">
+          <div id="randombox" class="avatar-container"></div>
+          <h3>Avatar Code</h3>
+          <code id="generatedcode" class="code"></code>
+          <h3>SVG Code</h3>
+          <div><em>Size: <span id="svgFileSize"></span></em></div>
+          <code id="svgcode" class="code"></code>
+        </div>
+
+        <div class="pure-u-1 pure-u-md-3-8">
+          <div class="pure-form pure-form-aligned">
+
+            <fieldset>
+              <legend>Avatar generator playground</legend>
+
+              <div class="pure-control-group">
+                <label for="avatarcodeinput">Recreate avatar from code</label>
+                <input type="text" id="avatarcodeinput" value="">
+              </div>
+
+              <div class="pure-control-group">
+                <label for="avatarcomplexity">Complexity</label>
+                <input type="range" min="2" max="32" value="8" id="avatarcomplexity">
+                <span id=avatarComplexityVal></span>
+              </div>
+
+              <div class="pure-control-group">
+                <label for="cellshape">Cells shape</label>
+                <select id="cellshape">
+                  <option value="square" selected>Square</option>
+                  <option value="circle">Circle</option>
+                  <option value="custom triangle">Custom 1 (triangles)</option>
+                  <option value="custom diamond">Custom 2 (diamonds)</option>
+                  <option value="custom heart">Custom 3 (hearts)</option>
+                </select>
+              </div>
+
+              <div class="pure-controls">
+                <button class="pure-button pure-button-primary" id="updateimage">Update Image</button>
+              </div>
+            </fieldset>
+
+          </div>
+        </div>
+      </div>
+      <footer class="footer">
+        &copy; fractalsoftware. 2020
+      </footer>
     </div>
   </div>
 
