@@ -76,7 +76,7 @@ export function getAvatarFromData(avatarData, width = 256, renderMethod = 'squar
 
   const rows = getBinaryList(yAxis, size);
   const cols = getBinaryList(xAxis, size);
-  let ret = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${width}">`;
+  let ret = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${width} ${width}">`;
 
   rows.forEach((rowItem, indexY) => {
     let draw = [];
