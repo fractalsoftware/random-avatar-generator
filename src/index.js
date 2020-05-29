@@ -8,7 +8,7 @@ function getBinaryList(number, size) {
     .split('');
   }
   
-function parseAvatarData(data, separator = '-') {
+function parseAvatarData(data, separator) {
   const ret = {
     xAxis: 0,
     yAxis: 0,
