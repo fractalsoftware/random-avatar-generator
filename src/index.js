@@ -15,6 +15,10 @@ function parseAvatarData(data, separator = '-') {
     colorMap: []
   };
 
+  if (!data) {
+    return ret;
+  }
+
   data.split(separator).forEach((element, index) => {
     let intVal = parseInt(element, 36);
 
@@ -55,12 +59,9 @@ export function getAvatarFromData(avatarData, width = 256, renderMethod = 'squar
   const { xAxis, yAxis, colorMap } = parseAvatarData(avatarData, avatarDataSeparator);
   const size = colorMap.length;
   const resolution = Math.floor(width / size);
-  
-  if (xAxis >= Math.pow(2, size)) {
-    throw Error(`xAxis should be a number lower than ${size}`);
-  }
-  if (yAxis >= Math.pow(2, size)) {
-    throw Error(`yAxis should be a number lower than ${size}`);
+
+  if (size < 1 || xAxis >= Math.pow(2, size)) {
+    throw Error('Incorrect avatar data');
   }
 
   let renderProcess = (resolution, indexX, indexY) => `M${indexX * resolution},${indexY * resolution} h${resolution} v${resolution} h${0 - resolution}Z`;
