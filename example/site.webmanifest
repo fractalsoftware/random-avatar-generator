@@ -1,0 +1,14 @@
+{
+  "short_name": "random-avatar-generator",
+  "name": "Random Avatar Generator Demo",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "256x256"
+    }
+  ],
+  "start_url": "./",
+  "background_color": "#696969",
+  "theme_color": "#696969"
+}
