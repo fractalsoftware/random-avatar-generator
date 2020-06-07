@@ -1,5 +1,6 @@
 (function (document, randomAvatarGenerator) {
   const avatarSize = 256;
+  const randomicon = document.getElementById('randomicon');
   const randombox = document.getElementById('randombox');
   const generatedCodeOutput = document.getElementById('generatedcode');
   const svgCodeOutput = document.getElementById('svgcode');
@@ -8,6 +9,8 @@
   const avatarComplexityVal = document.getElementById('avatarComplexityVal');
   const cellShapeSelect = document.getElementById('cellshape');
   const svgFileSize = document.getElementById('svgFileSize');
+
+  randomicon.innerHTML =randomAvatarGenerator.getRandomAvatar(4);
 
   const getRenderMethod = (method) => {
     switch (method) {

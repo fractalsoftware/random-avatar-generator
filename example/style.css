@@ -1,13 +1,14 @@
 * {
   -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -moz-box-sizing   : border-box;
+  box-sizing        : border-box;
 }
 
 a {
   text-decoration: none;
-  color: rgb(228, 219, 103);
+  color          : rgb(228, 219, 103);
 }
+
 a:hover,
 a:focus {
   text-decoration: underline;
@@ -20,49 +21,65 @@ a:focus {
 
 .header {
   text-align: center;
-  top: auto;
-  margin: 3em auto;
+  top       : auto;
+  margin    : 3em auto;
 }
 
 .sidebar {
   background: rgb(105, 105, 105);
-  color: #fff;
+  color     : #fff;
 }
 
 .brand-title,
 .brand-tagline {
   margin: 0;
 }
+
 .brand-title {
   text-transform: uppercase;
 }
+
 .brand-tagline {
   font-weight: 300;
-  color: rgb(211, 212, 179);
+  color      : rgb(211, 212, 179);
+}
+
+.brand-icon {
+  display: block;
+  float  : left;
+  height : 40px;
+  margin : 1em 0 0 2em;
+}
+
+.brand-icon>svg {
+  width: 40px;
 }
 
 .nav-list {
-  margin: 0;
-  padding: 0;
+  margin    : 0;
+  padding   : 0;
   list-style: none;
 }
+
 .nav-item {
-  display: inline-block;
+  display : inline-block;
   *display: inline;
-  zoom: 1;
+  zoom    : 1;
 }
+
 .nav-item a {
-  background: transparent;
-  border: 2px solid rgb(211, 212, 179);
-  color: #fff;
-  margin-top: 1em;
+  background    : transparent;
+  border        : 2px solid rgb(211, 212, 179);
+  color         : #fff;
+  margin-top    : 1em;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: 85%;
+  font-size     : 85%;
 }
+
 .nav-item a:hover,
 .nav-item a:focus {
-  border: 2px solid rgb(228, 219, 103);
+  border         : 2px solid rgb(228, 219, 103);
   text-decoration: none;
 }
 
@@ -72,47 +89,60 @@ a:focus {
 
 .code {
   background: #f0f0f0;
-  border: 1px solid #aaa;
-  display: block;
-  padding: 8px 10px;
+  border    : 1px solid #aaa;
+  display   : block;
+  padding   : 8px 10px;
 }
 
 .post {
   padding-bottom: 2em;
 }
+
 .post-title {
-  font-size: 2em;
-  color: #222;
+  font-size    : 2em;
+  color        : #222;
   margin-bottom: 0.2em;
 }
 
 .footer {
   padding: 3em 0;
-  color: #666; 
+  color  : #666;
 }
 
 @media (min-width: 48em) {
   .content {
-      padding: 2em 3em 0;
-      margin-left: 25%;
+    padding    : 2em 3em 0;
+    margin-left: 25%;
   }
 
   .header {
-    margin: 0 2em;
-    text-align: right;
-    display: flex;
+    margin     : 0 2em;
+    text-align : right;
+    display    : flex;
     align-items: center;
-    height: 100vh;
+    height     : 100vh;
+  }
+
+  .brand-icon {
+    display        : flex;
+    float          : none;
+    height         : 80px;
+    justify-content: flex-end;
+    margin-bottom  : 1em;
+  }
+
+  .brand-icon>svg {
+    width: 80px;
   }
 
   .sidebar {
-      position: fixed;
-      top: 0;
-      bottom: 0;
+    position: fixed;
+    top     : 0;
+    bottom  : 0;
   }
 }
 
 .avatar-container {
-  width: 256px;
+  width        : 256px;
   margin-bottom: 1em;
 }
