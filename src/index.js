@@ -6,8 +6,8 @@ function getBinaryList(number, size) {
   return number.toString(2)
     .padStart(size, '0')
     .split('');
-  }
-  
+}
+
 function parseAvatarData(data, separator) {
   const ret = {
     xAxis: 0,
@@ -29,7 +29,7 @@ function parseAvatarData(data, separator) {
       case 1:
         ret.yAxis = intVal;
         break;
-    
+
       default:
         ret.colorMap.push(decToHexColor(intVal));
         break;
@@ -47,7 +47,7 @@ export function generateRandomAvatarData(size = 16, avatarDataSeparator = '-') {
   let ret = `${xAxis.toString(36)}${avatarDataSeparator}${yAxis.toString(36)}`;
   let color;
 
-  rows.forEach(() => {    
+  rows.forEach(() => {
     color = Math.floor(Math.random() * 16777215);
     ret += `${avatarDataSeparator}${color.toString(36)}`;
   });
