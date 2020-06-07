@@ -8,6 +8,16 @@
     "watch": "webpack --watch",
     "test": "jest --coverage --no-cache"
   },
+  "keywords": [
+    "random",
+    "svg",
+    "images",
+    "avatar",
+    "low-collision",
+    "education",
+    "no-dependencies",
+    "lightweight"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/manuelhe/random-avatar-generator.git"
