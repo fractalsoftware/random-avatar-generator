@@ -92,7 +92,7 @@ export function getAvatarFromData(avatarData, width = 256, renderMethod = 'squar
   return `${ret}</svg>`;
 }
 
-export default function getRandomAvatar(size = 16, width = 256) {
+export function getRandomAvatar(size = 16, width = 256) {
   let avatarData = generateRandomAvatarData(size);
   return getAvatarFromData(avatarData, width);
 }
