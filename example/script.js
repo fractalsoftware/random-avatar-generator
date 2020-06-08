@@ -10,7 +10,7 @@
   const cellShapeSelect = document.getElementById('cellshape');
   const svgFileSize = document.getElementById('svgFileSize');
 
-  randomicon.innerHTML =randomAvatarGenerator.getRandomAvatar(4);
+  randomicon.innerHTML = randomAvatarGenerator.getRandomAvatar(4);
 
   const getRenderMethod = (method) => {
     switch (method) {
