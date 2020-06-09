@@ -40,7 +40,7 @@ How to generate a random pattern:
 <div id="randonavatar"></div>
 
 <script>
-    document.getElementById('randomavatar').innerHtml = randomAvatarGenerator.getRandomAvatar(8, 420);
+    document.getElementById('randomavatar').innerHtml = randomAvatarGenerator.getRandomAvatar(8);
 </script>
 ```
 
