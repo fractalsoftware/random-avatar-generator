@@ -39,11 +39,11 @@ function parseAvatarData(data, separator) {
   return ret;
 }
 
-export function generateRandomAvatarData(size = 16, avatarDataSeparator = '-') {
-  const xAxis = Math.floor(Math.random() * Math.pow(2, size - 1));
-  const yAxis = Math.floor(Math.random() * (Math.pow(2, size) - 1)) + 1;
+export function generateRandomAvatarData(complexity = 16, avatarDataSeparator = '-') {
+  const xAxis = Math.floor(Math.random() * Math.pow(2, complexity - 1));
+  const yAxis = Math.floor(Math.random() * (Math.pow(2, complexity) - 1)) + 1;
 
-  const rows = getBinaryList(yAxis, size);
+  const rows = getBinaryList(yAxis, complexity);
   let ret = `${xAxis.toString(36)}${avatarDataSeparator}${yAxis.toString(36)}`;
   let color;
 
@@ -55,12 +55,12 @@ export function generateRandomAvatarData(size = 16, avatarDataSeparator = '-') {
   return ret;
 }
 
-export function getAvatarFromData(avatarData, width = 256, renderMethod = 'square', avatarDataSeparator = '-') {
+export function getAvatarFromData(avatarData, renderMethod = 'square', size = 256, avatarDataSeparator = '-') {
   const { xAxis, yAxis, colorMap } = parseAvatarData(avatarData, avatarDataSeparator);
-  const size = colorMap.length;
-  const resolution = Math.floor(width / size);
+  const complexity = colorMap.length;
+  const resolution = Math.floor(size / complexity);
 
-  if (size < 1 || xAxis >= Math.pow(2, size)) {
+  if (complexity < 1 || xAxis >= Math.pow(2, complexity)) {
     throw Error('Incorrect avatar data');
   }
 
@@ -75,9 +75,9 @@ export function getAvatarFromData(avatarData, width = 256, renderMethod = 'squar
     renderProcess = renderMethod;
   }
 
-  const rows = getBinaryList(yAxis, size);
-  const cols = getBinaryList(xAxis, size);
-  let ret = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${width} ${width}">`;
+  const rows = getBinaryList(yAxis, complexity);
+  const cols = getBinaryList(xAxis, complexity);
+  let ret = `<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 ${size} ${size}">`;
 
   rows.forEach((rowItem, indexY) => {
     let draw = [];
@@ -92,7 +92,7 @@ export function getAvatarFromData(avatarData, width = 256, renderMethod = 'squar
   return `${ret}</svg>`;
 }
 
-export function getRandomAvatar(size = 16, width = 256) {
-  let avatarData = generateRandomAvatarData(size);
-  return getAvatarFromData(avatarData, width);
+export function getRandomAvatar(complexity = 16, renderMethod = 'square', size = 256) {
+  let avatarData = generateRandomAvatarData(complexity);
+  return getAvatarFromData(avatarData, renderMethod, size);
 }

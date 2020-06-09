@@ -45,7 +45,7 @@
   avatarComplexityVal.innerText = complexity;
 
   generatedCodeOutput.innerText = avatarData;
-  randombox.innerHTML = randomAvatarGenerator.getAvatarFromData(avatarData, avatarSize, cellShape);
+  randombox.innerHTML = randomAvatarGenerator.getAvatarFromData(avatarData, cellShape, avatarSize);
   svgFileSize.innerText = byteSize(randombox.innerHTML);
   svgCodeOutput.innerText = randombox.innerHTML;
 
@@ -76,7 +76,7 @@
     cellShape = getRenderMethod(cellShapeSelect.value);
     generatedCodeOutput.innerText = avatarData;
     try {
-      randombox.innerHTML = randomAvatarGenerator.getAvatarFromData(avatarData, avatarSize, cellShape);
+      randombox.innerHTML = randomAvatarGenerator.getAvatarFromData(avatarData, cellShape, avatarSize);
       svgFileSize.innerText = byteSize(randombox.innerHTML);
       svgCodeOutput.innerText = randombox.innerHTML;
     } catch (e) {
