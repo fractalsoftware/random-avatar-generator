@@ -1,6 +1,6 @@
 {
   "name": "random-avatar-generator",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "description": "A random avatar generator with low collision",
   "main": "dist/random-avatar-generator.js",
   "publishConfig": {
