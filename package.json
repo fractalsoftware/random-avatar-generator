@@ -3,9 +3,6 @@
   "version": "v1.0.0",
   "description": "A random avatar generator with low collision",
   "main": "dist/random-avatar-generator.js",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "build": "NODE_ENV=production webpack --display-error-details --display-modules --optimize-minimize",
     "watch": "webpack --watch",
