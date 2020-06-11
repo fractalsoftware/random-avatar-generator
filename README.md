@@ -76,7 +76,7 @@ The purpose of this optional parameter is the inner calculations of the SVG path
 
 ### renderMethod
 
-As each enabled position within the svg output can be rendered independently, the API allows the selection of the way it will be draw. By default, it will use a simple `square` but also is available a `circle` method within the library. But also it's possible to extend it defining a custom callback that must output a string with a valid SVG path.
+As each enabled position within the SVG output can be rendered independently, the API allows the selection of the way it will be draw. There are defined two methods for this property: `square` (default) and `circle`. But also it's possible to extend it defining a custom callback that must output a string with a valid SVG path.
 
 This is an example of a custom callback that can be used in this parameter:
 
