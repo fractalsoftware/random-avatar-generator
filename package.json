@@ -1,6 +1,6 @@
 {
-  "name": "random-avatar-generator",
-  "version": "v1.0.0",
+  "name": "@fractalsoftware/random-avatar-generator",
+  "version": "v1.0.1",
   "description": "A random avatar generator with low collision",
   "main": "dist/random-avatar-generator.js",
   "scripts": {
@@ -20,13 +20,13 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/manuelhe/random-avatar-generator.git"
+    "url": "git+https://github.com/fractalsoftware/random-avatar-generator.git"
   },
   "author": "Manuel Herrera",
   "bugs": {
-    "url": "https://github.com/manuelhe/random-avatar-generator/issues"
+    "url": "https://github.com/fractalsoftware/random-avatar-generator/issues"
   },
-  "homepage": "https://github.com/manuelhe/random-avatar-generator#readme",
+  "homepage": "https://github.com/fractalsoftware/random-avatar-generator#readme",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.8.4",

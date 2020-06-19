@@ -18,14 +18,14 @@ As part of an academic publication and a side project, I built this simple libra
 
 This library can produce a random svg code for a given complexity with the following logic:
 
-* For a given `complexity` positive integer number a couple of numbers representing `x` and `y` axes random binary numbers are generated.
-* `XOR` computed value enables one position within the matrix of values.
-* In order to have bigger numeric space to prevent collision, each row  within the matrix has a random color number.
+- For a given `complexity` positive integer number a couple of numbers representing `x` and `y` axes random binary numbers are generated.
+- `XOR` computed value enables one position within the matrix of values.
+- In order to have bigger numeric space to prevent collision, each row within the matrix has a random color number.
 
 ## Installation
 
 ```
-$ npm install random-avatar-generator
+$ npm install @fractalsoftware/random-avatar-generator
 ```
 
 ## Usage
@@ -40,17 +40,19 @@ How to generate a random pattern:
 <div id="randonavatar"></div>
 
 <script>
-    document.getElementById('randomavatar').innerHtml = randomAvatarGenerator.getRandomAvatar(8);
+  document.getElementById(
+    "randomavatar"
+  ).innerHtml = randomAvatarGenerator.getRandomAvatar(8);
 </script>
 ```
 
 ### In NodeJS
 
 ```js
-const randomAvatarGenerator = require('random-avatar-generator');
+const randomAvatarGenerator = require("random-avatar-generator");
 
 // Using default method parameters
-fs.writeFileSync('avatar.svg', randomAvatarGenerator.getRandomAvatar());
+fs.writeFileSync("avatar.svg", randomAvatarGenerator.getRandomAvatar());
 ```
 
 ### Advance use
@@ -116,10 +118,10 @@ const avatarData = randomAvatarGenerator.generateRandomAvatarData(3);
 
 #### Arguments
 
-| name | type | description |
-|------|------|-------------|
-|`complexity`         |number|(optional) Default value: `16`|
-|`avatarDataSeparator`|string|(optional) Default value: `-`|
+| name                  | type   | description                    |
+| --------------------- | ------ | ------------------------------ |
+| `complexity`          | number | (optional) Default value: `16` |
+| `avatarDataSeparator` | string | (optional) Default value: `-`  |
 
 ### getAvatarFromData
 
@@ -128,18 +130,19 @@ Returns a string with a valid SVG markup for a given `avatarData`.
 #### Usage
 
 ```js
-randomAvatarGenerator.getAvatarFromData('0-6-6te25-9d9p0-xd5g');
+randomAvatarGenerator.getAvatarFromData("0-6-6te25-9d9p0-xd5g");
 // Output: <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256"><path fill="#aeb26d" d="M0,0 h85 v85 h-85Z M85,0 h85 v85 h-85Z M170,0 h85 v85 h-85Z"/><path fill="#f01b54" d="M0,85 h85 v85 h-85Z M85,85 h85 v85 h-85Z M170,85 h85 v85 h-85Z"/><path fill="#17c0d4" d=""/></svg>
 ```
 
 #### Arguments
 
-| name | type | description |
-|------|------|-------------|
-|`avatarData`         |string|(required) A valid avatar data code|
-|`renderMethod`       |string or function|(optional) Default value: `square`|
-|`size`               |number|(optional) Default value: `256`|
-|`avatarDataSeparator`|string|(optional) Default value: `-`|
+| name                  | type               | description                         |
+| --------------------- | ------------------ | ----------------------------------- |
+| `avatarData`          | string             | (required) A valid avatar data code |
+| `renderMethod`        | string or function | (optional) Default value: `square`  |
+| `size`                | number             | (optional) Default value: `256`     |
+| `avatarDataSeparator` | string             | (optional) Default value: `-`       |
+
 ---
 
 ### getRandomAvatar
@@ -149,18 +152,17 @@ A simpler helper that returns a random SVG markup for a give `complexity`
 #### Usage
 
 ```js
-const randomAvatar = randomAvatarGenerator.getRandomAvatar(4)
+const randomAvatar = randomAvatarGenerator.getRandomAvatar(4);
 // Output example: <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 256 256"><path fill="#fbdfae" d="M0,0 h64 v64 h-64Z M128,0 h64 v64 h-64Z"/><path fill="#1ad956" d="M0,64 h64 v64 h-64Z M128,64 h64 v64 h-64Z"/><path fill="#f26f0b" d="M64,128 h64 v64 h-64Z M192,128 h64 v64 h-64Z"/><path fill="#38b27d" d="M0,192 h64 v64 h-64Z M128,192 h64 v64 h-64Z"/></svg>
 ```
 
 #### Arguments
 
-| name | type | description |
-|------|------|-------------|
-|`complexity`         |number|(optional) Default value: `16`|
-|`renderMethod`       |string or function|(optional) Default value: `square`|
-|`size`               |number|(optional) Default value: `256`|
-
+| name           | type               | description                        |
+| -------------- | ------------------ | ---------------------------------- |
+| `complexity`   | number             | (optional) Default value: `16`     |
+| `renderMethod` | string or function | (optional) Default value: `square` |
+| `size`         | number             | (optional) Default value: `256`    |
 
 ## License
 
