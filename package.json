@@ -1,6 +1,6 @@
 {
   "name": "@fractalsoftware/random-avatar-generator",
-  "version": "v1.0.1",
+  "version": "1.0.2",
   "description": "A random avatar generator with low collision",
   "main": "dist/random-avatar-generator.js",
   "scripts": {
@@ -16,7 +16,10 @@
     "low-collision",
     "education",
     "no-dependencies",
-    "lightweight"
+    "lightweight",
+    "graphic",
+    "vector",
+    "generator"
   ],
   "repository": {
     "type": "git",
@@ -36,5 +39,8 @@
     "jest": "^26.0.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
+  },
+  "directories": {
+    "example": "example"
   }
 }
