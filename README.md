@@ -1,8 +1,8 @@
 # Random Avatar Generator
 
 [![LICENSE](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/manuelhe/random-avatar-generator/blob/master/LICENSE.txt)
-[![Build Status](https://travis-ci.org/manuelhe/random-avatar-generator.svg?branch=master)](https://travis-ci.org/manuelhe/random-avatar-generator)
 ![Node.js CI](https://github.com/manuelhe/random-avatar-generator/workflows/Node.js%20CI/badge.svg?branch=master)
+![Node.js Package](https://github.com/fractalsoftware/random-avatar-generator/workflows/Node.js%20Package/badge.svg)
 
 A random pixel pattern generator with low collision and zero external dependencies.
 
