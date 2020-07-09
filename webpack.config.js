@@ -9,7 +9,7 @@ module.exports = [
     path: path.resolve(__dirname, 'dist'),
     filename: 'random-avatar-generator.js',
     library: 'randomAvatarGenerator',
-    libraryTarget: 'var',
+    libraryTarget: 'umd',
   },
   devtool,
   module: {
