@@ -37,7 +37,7 @@ How to generate a random pattern:
 ```html
 <script src="random-avatar-generator.js"></script>
 
-<div id="randonavatar"></div>
+<div id="randomavatar"></div>
 
 <script>
   document.getElementById(
@@ -54,15 +54,25 @@ const randomAvatarGenerator = require("random-avatar-generator");
 // Using default method parameters
 fs.writeFileSync("avatar.svg", randomAvatarGenerator.getRandomAvatar());
 ```
+### In React
 
-### Advance use
+```jsx
+import { getRandomAvatar } from "@fractalsoftware/random-avatar-generator";
 
-You also can generate the avatar data definition and then generate the SVG string with the following methods:
+const avatar = getRandomAvatar();
+cons inlineAvatar = <img src={`data:image/svg+xml;base64,${btoa(avatar)}`} />;
+```
+
+### Controlled use
+
+You can also generate the avatar data definition and then generate the SVG string with the following methods:
 
 ```js
 const avatarData = randomAvatarGenerator.generateRandomAvatarData();
 const svgCode = randomAvatarGenerator.getAvatarFromData(avatarData);
 ```
+
+In this way, you can keep track of the avatar code and repaint it when needed.
 
 ## Options
 
@@ -83,7 +93,7 @@ As each enabled position within the SVG output can be rendered independently, th
 This is an example of a custom callback that can be used in this parameter:
 
 ```js
-const drawTriangle (resolution, indexX, indexY) => `M${(indexX * resolution) + (resolution / 2)},${indexY * resolution} l${resolution / 2} ${resolution} l-${resolution} 0z`;
+const drawTriangle = (resolution, indexX, indexY) => `M${(indexX * resolution) + (resolution / 2)},${indexY * resolution} l${resolution / 2} ${resolution} l-${resolution} 0z`;
 // Output example: M76.5,0 l25.5 51 l-51 0z
 ```
 
