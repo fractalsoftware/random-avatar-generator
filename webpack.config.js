@@ -8,10 +8,12 @@ module.exports = [
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'random-avatar-generator.js',
-    library: 'randomAvatarGenerator',
-    libraryTarget: 'umd',
+    library: {
+      name: 'randomAvatarGenerator',
+      type: 'umd',
+    }
   },
-  devtool,
+  devtool: 'source-map',
   module: {
     rules: [
       {
