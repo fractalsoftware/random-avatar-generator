@@ -1,9 +1,10 @@
 {
   "name": "@fractalsoftware/random-avatar-generator",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A random avatar generator with low collision",
   "module": "./src/index.js",
   "types": "./src/index.d.ts",
+  "main": "./dist/random-avatar-generator.js",
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "watch": "webpack --watch",
@@ -39,7 +40,7 @@
     "babel-loader": "^8.2.3",
     "jest": "^27.3.1",
     "source-map": "^0.7.3",
-    "webpack": "^5.61.0",
+    "webpack": "^5.62.1",
     "webpack-cli": "^4.9.1"
   },
   "directories": {
