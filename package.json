@@ -1,6 +1,6 @@
 {
   "name": "@fractalsoftware/random-avatar-generator",
-  "version": "1.0.9",
+  "version": "1.0.11",
   "description": "A random avatar generator with low collision",
   "module": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -46,5 +46,9 @@
   "directories": {
     "example": "example"
   },
-  "files": ["/dist", "/src/", "/example"]
+  "files": [
+    "/dist",
+    "/src/",
+    "/example"
+  ]
 }
