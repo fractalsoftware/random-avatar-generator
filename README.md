@@ -40,20 +40,20 @@ How to generate a random pattern:
 <div id="randomavatar"></div>
 
 <script>
-  document.getElementById(
-    "randomavatar"
-  ).innerHtml = randomAvatarGenerator.getRandomAvatar(8);
+  document.getElementById("randomavatar").innerHtml =
+    randomAvatarGenerator.getRandomAvatar(8);
 </script>
 ```
 
 ### In NodeJS
 
 ```js
-const randomAvatarGenerator = require("random-avatar-generator");
+const randomAvatarGenerator = require("@fractalsoftware/random-avatar-generator");
 
 // Using default method parameters
 fs.writeFileSync("avatar.svg", randomAvatarGenerator.getRandomAvatar());
 ```
+
 ### In React
 
 ```jsx
@@ -93,7 +93,10 @@ As each enabled position within the SVG output can be rendered independently, th
 This is an example of a custom callback that can be used in this parameter:
 
 ```js
-const drawTriangle = (resolution, indexX, indexY) => `M${(indexX * resolution) + (resolution / 2)},${indexY * resolution} l${resolution / 2} ${resolution} l-${resolution} 0z`;
+const drawTriangle = (resolution, indexX, indexY) =>
+  `M${indexX * resolution + resolution / 2},${indexY * resolution} l${
+    resolution / 2
+  } ${resolution} l-${resolution} 0z`;
 // Output example: M76.5,0 l25.5 51 l-51 0z
 ```
 
