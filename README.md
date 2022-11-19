@@ -60,7 +60,7 @@ fs.writeFileSync("avatar.svg", randomAvatarGenerator.getRandomAvatar());
 import { getRandomAvatar } from "@fractalsoftware/random-avatar-generator";
 
 const avatar = getRandomAvatar();
-cons inlineAvatar = <img src={`data:image/svg+xml;base64,${btoa(avatar)}`} />;
+const inlineAvatar = <img src={`data:image/svg+xml;base64,${btoa(avatar)}`} />;
 ```
 
 ### Controlled use
